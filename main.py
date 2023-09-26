@@ -412,8 +412,10 @@ def main_worker(index, opt):
 
 
 if __name__ == '__main__':
+    # 命令行参数解析
     opt = get_opt()
-
+    
+    # 如果有GPU就采用GPU，否则利用CPU
     opt.device = torch.device('cpu' if opt.no_cuda else 'cuda')
     if not opt.no_cuda:
         cudnn.benchmark = True
